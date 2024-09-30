@@ -50,6 +50,7 @@
             border-radius: 40px;
         }
 
+
         header svg {
             padding-left: 16px;
             max-width: 100px;
@@ -99,7 +100,14 @@
             align-items: center;
             justify-content: center;
         }
-        #micc svg{
+        #micc .yt-icon{
+            width: 24px;
+            height: 24px;
+        }
+        #micc .search-icon{
+            display: none;
+        }
+        #micc svg {
             padding-left: 0px;
         }
 
@@ -110,7 +118,8 @@
             min-width: 20px;
             min-height: 20px;
         }
-        #uin{
+
+        #uin {
             margin-left: 8px;
             margin-right: 16px;
             color: white;
@@ -120,21 +129,23 @@
             align-items: center;
             background-color: green;
             border-radius: 50%;
-            border: 1px solid white ;
+            border: 1px solid white;
         }
-        #lsts{
+
+        #lsts {
             gap: 8px;
         }
-        
+
         #btns,
-        section,#lbtns,#rbtns {
+        section,
+        #lbtns,
+        #rbtns {
             display: flex;
             flex-direction: row;
         }
 
         #main,
         #more {
-            min-height: 100%;
             display: flex;
             flex-direction: column;
         }
@@ -158,20 +169,29 @@
             width: 32%;
             gap: 8px;
         }
-        #btns{
+
+        #btns {
             justify-content: space-between;
             align-items: center;
         }
-        #lbtns,#rbtns{
-            gap:12px;
+
+        #lbtns,
+        #rbtns {
+            gap: 12px;
         }
-        #ct,#moreb{
+
+        #ct,
+        #moreb {
             border-radius: 50%;
             min-width: 40px;
             min-height: 40px;
             background-color: white;
         }
-        #join,#Subscribe,#share,#download{
+
+        #join,
+        #Subscribe,
+        #share,
+        #download {
             border-radius: 40px;
             background-color: #2d2929;
             padding: 8px;
@@ -181,26 +201,119 @@
             justify-content: center;
             align-items: center;
         }
-        #mpd{
+
+        #mpd {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
         }
-        #mored{
+
+        #mored {
             display: flex;
             flex-direction: row;
             gap: 8px;
         }
-        #morep{
+
+        #morep {
             min-width: 168px;
             min-height: 94px;
             border-radius: 4px;
             background-color: black;
         }
-        #subat{
+
+        #subat {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+        }
+
+        @media (max-width:600px) {
+
+            input,
+            #join,
+            #moreb,
+            #lsts div svg {
+                display: none;
+            }
+
+            section {
+                flex-direction: column;
+            }
+
+            #btns {
+                margin: 0px 10px 0px 10px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: end;
+            }
+
+            #cinfo {
+                flex-grow: 1;
+            }
+
+            #lbtns {
+                min-width: 100%;
+            }
+
+            #uin {
+                margin: 0px;
+            }
+
+            header {
+                padding: 0px 10px 0px 10px;
+            }
+
+            header div label {
+                display: none;
+            }
+
+            header div svg {
+                padding-left: 10px;
+            }
+
+            #micc {
+                margin-left: 0px;
+            }
+            #micc .yt-icon{
+                display: none;
+                width: 0px;
+                height: 0px;
+            }
+            #micc .search-icon{
+                max-height: 20px;
+                max-width: 20px;
+                display: block;
+            }
+
+            #main {
+                padding: 0px;
+                width: 100%;
+            }
+
+            #player {
+                border-radius: 0px;
+                min-height: 250px;
+            }
+
+            #main h1 {
+                padding: 0px 10px 0px 10px;
+            }
+
+            #more {
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            #mored {
+                flex-direction: column;
+            }
+
+            #morep {
+                min-height: 250px;
+                border-radius: 0px;
+
+            }
         }
     </style>
 </head>
@@ -250,13 +363,18 @@
         <div>
             <input type="text">
             <div id="micc">
-                <yt-icon style="width: 24px; height: 24px;">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE search-icon"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
+                    </path>
+                </svg>
+                <yt-icon>
                     <yt-icon-shape class="style-scope yt-icon">
                         <icon-shape class="yt-spec-icon-shape">
                             <div style="width: 100%; height: 100%; display: block; fill: currentcolor;">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
-                                    focusable="false"
-                                    style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                                    focusable="false" style="pointer-events: none; width: 100%; height: 100%;">
                                     <path
                                         d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z">
                                     </path>
@@ -268,8 +386,20 @@
             </div>
         </div>
         <div id="lsts">
-            <div><svg xmlns="http://www.w3.org/2000/svg" height="24" style="pointer-events: none; display: inherit; width: 100%; height: 100%;" viewBox="0 0 24 24" width="24" focusable="false"><path d="M14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2zm3-7H3v12h14v-6.39l4 1.83V8.56l-4 1.83V6m1-1v3.83L22 7v8l-4-1.83V19H2V5h16z"></path></svg></div>
-            <div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M10 20h4c0 1.1-.9 2-2 2s-2-.9-2-2zm10-2.65V19H4v-1.65l2-1.88v-5.15C6 7.4 7.56 5.1 10 4.34v-.38c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v5.15l2 1.87zm-1 .42-2-1.88v-5.47c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03C8.15 6.11 7 7.99 7 10.42v5.47l-2 1.88V18h14v-.23z"></path></svg></div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                    style="pointer-events: none; width: 100%; height: 100%;" viewBox="0 0 24 24" width="24"
+                    focusable="false">
+                    <path
+                        d="M14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2zm3-7H3v12h14v-6.39l4 1.83V8.56l-4 1.83V6m1-1v3.83L22 7v8l-4-1.83V19H2V5h16z">
+                    </path>
+                </svg></div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                    viewBox="0 0 24 24" width="24" focusable="false"
+                    style="pointer-events: none; width: 100%; height: 100%;">
+                    <path
+                        d="M10 20h4c0 1.1-.9 2-2 2s-2-.9-2-2zm10-2.65V19H4v-1.65l2-1.88v-5.15C6 7.4 7.56 5.1 10 4.34v-.38c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v5.15l2 1.87zm-1 .42-2-1.88v-5.47c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03C8.15 6.11 7 7.99 7 10.42v5.47l-2 1.88V18h14v-.23z">
+                    </path>
+                </svg></div>
             <div id="uin">S</div>
         </div>
     </header>
