@@ -16,6 +16,11 @@
             border: 0;
         }
 
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
         body {
             color: white;
             font-family: Arial, Helvetica, sans-serif;
@@ -25,12 +30,16 @@
         }
 
         header {
+            width: 98%;
             min-height: 56px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             padding-left: 20px;
             padding-right: 20px;
+            position: fixed;
+            z-index: 1;
+            background-color: #0f0f0f;
         }
 
         header div {
@@ -39,16 +48,6 @@
             align-items: center;
         }
 
-        input {
-            width: 515px;
-            height: 40px;
-            padding-left: 32px;
-            padding-right: 64px;
-            background-color: black;
-            color: white;
-            border: 0.5px solid rgba(255, 255, 255, 0.347);
-            border-radius: 40px;
-        }
 
 
         header svg {
@@ -57,10 +56,6 @@
             max-height: 100px;
         }
 
-        section {
-            display: flex;
-            flex-direction: row;
-        }
 
         #vd {
             display: flex;
@@ -89,6 +84,54 @@
             fill: white;
         }
 
+        .search {
+            width: 45%;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding-left: 16px;
+            background-color: black;
+            color: white;
+            border: 1px solid #272727;
+            border-top-left-radius: 40px;
+            border-bottom-left-radius: 40px;
+            font-size: 16px;
+            font-weight: 400;
+            outline: none;
+        }
+
+        input:focus {
+            border: 1px solid #065fd4;
+            outline: none;
+        }
+
+        .searchbar {
+            flex-grow: 1;
+        }
+
+        .searchicon {
+            z-index: 1;
+            right: 0px;
+            min-height: 40px;
+            border: 0.5px solid #272727;
+            background-color: #272727;
+            padding-right: 20px;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .searchicon svg {
+            max-height: 24px;
+            max-width: 24px;
+            min-height: 24px;
+            min-width: 24px;
+        }
+
         #micc {
             margin-left: 16px;
             min-width: 40px;
@@ -100,13 +143,12 @@
             align-items: center;
             justify-content: center;
         }
-        #micc .yt-icon{
+
+        #micc .yt-icon {
             width: 24px;
             height: 24px;
         }
-        #micc .search-icon{
-            display: none;
-        }
+
         #micc svg {
             padding-left: 0px;
         }
@@ -144,6 +186,12 @@
             flex-direction: row;
         }
 
+        section {
+            margin-top: 56px;
+            padding: 24px;
+            gap: 24px;
+        }
+
         #main,
         #more {
             display: flex;
@@ -151,22 +199,27 @@
         }
 
         #player {
-            border-radius: 16px;
+            border-radius: 12px;
             background-color: black;
-            min-height: 551px;
+            min-height: 0px;
+            max-height: 532px;
+            aspect-ratio: 16/9;
+        }
+
+        #player iframe {
+            border-radius: 12px;
+            max-width: 100%;
+            min-height: 0px;
+            max-height: 100%;
         }
 
         #main {
-            padding-top: 24px;
-            padding-left: 24px;
-            width: 68%;
-            gap: 16px;
+            width: 64%;
+            gap: 13px;
         }
 
         #more {
-            margin-left: 24px;
-            padding-top: 24px;
-            width: 32%;
+            max-width: 402px;
             gap: 8px;
         }
 
@@ -180,32 +233,52 @@
             gap: 12px;
         }
 
-        #ct,
-        #moreb {
+        #ct {
             border-radius: 50%;
             min-width: 40px;
             min-height: 40px;
-            background-color: white;
+            background-image: url("https://yt3.ggpht.com/Ah49m6uwNjN6WZcsrQW6AwappzfQ8QdAaWZN2H6-1RIRhxvlQRcf05SVaHagaxtpm4aeU5DhmQ=s88-c-k-c0x00ffffff-no-rj");
+            background-size: cover;
         }
 
-        #join,
         #Subscribe,
         #share,
         #download {
             border-radius: 40px;
             background-color: #2d2929;
-            padding: 8px;
-            padding-left: 16px;
-            padding-right: 16px;
+            padding: 8px 16px;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        #moreb {
+            background-color: #2d2929;
+            border-radius: 50%;
+            min-width: 40px;
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+
+        #Subscribe {
+            color: black;
+            background-color: white;
         }
 
         #mpd {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        #mpd p {
+            max-height: 50px;
+            overflow-y: hidden;
         }
 
         #mored {
@@ -215,29 +288,181 @@
         }
 
         #morep {
+            position: relative;
             min-width: 168px;
             min-height: 94px;
+            border-radius: 8px;
+            background-image: url("https://i.ytimg.com/vi/YY2GX_7wR7Y/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA-lHXWH6ZbrqfsHvKapaMvoS_1Lg");
+            background-size: cover;
+        }
+
+        #morep p {
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2px 4px;
             border-radius: 4px;
-            background-color: black;
         }
 
         #subat {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+        }
+
+        #subat .dot {
+            max-height: 13.6px;
+            overflow: hidden;
+        }
+
+        .subcount {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .moreo {
+            color: #aaa;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        #cinfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            min-width: 140px;
+        }
+
+        .dot::before {
+            content: "•";
+            margin: 0 4px;
+        }
+
+        #subdiv {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
+
+        #morebd #ct {
+            display: none;
+        }
+
+        .diff {
+            display: none;
+        }
+
+        #description {
+            font-size: 14px;
+            font-weight: 400;
+            background-color: #272727;
+            min-height: 80px;
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .views {
+            display: none;
+        }
+
+        @media(min-width:1440px) {
+            section {
+                justify-content: center;
+            }
+
+            #more {
+                min-width: 402px;
+                max-width: 402px;
+            }
+        }
+
+        @media(max-width:1440px) {
+            #more {
+                flex-grow: 1;
+            }
+        }
+
+        @media (min-width:1016px) {
+            #main {
+                min-width: 640px;
+            }
+        }
+
+        @media (max-width:1016px) {
+            section {
+                flex-direction: column;
+            }
+
+            #main {
+                width: 100%;
+            }
+
+            #more {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width:600px) {
+            .cn {
+                margin-top: 6px;
+                margin-bottom: 4px;
+            }
+
+            #subat .moreo {
+                min-width: fit-content;
+            }
         }
 
         @media (max-width:600px) {
 
-            input,
-            #join,
-            #moreb,
-            #lsts div svg {
-                display: none;
+            #mpd p {
+                max-height: 33.6px;
             }
 
             section {
-                flex-direction: column;
+                padding: 0px;
+                margin-top: 48px;
+            }
+
+            #title {
+                margin-top: 60vw;
+            }
+
+            #micc {
+                display: none;
+            }
+            .searchbar {
+                max-height: 34px;
+            }
+            input{
+                background-color: #383838;
+                max-height: 34px;
+                border: 0px;
+            }
+            input:focus{
+                border: 0px;
+            }
+            .searchicon {
+                min-height: 34px;
+                min-width: 0px;
+                padding: 0px 10px;
+                background-color: #383838;
+                border: 0px;
+            }
+            .searchicon svg{
+                padding-left: 0px;
+            }
+
+            #moreb,
+            #lsts div svg {
+                display: none;
             }
 
             #btns {
@@ -249,10 +474,15 @@
 
             #cinfo {
                 flex-grow: 1;
+                flex-direction: row;
+                align-items: center;
+                justify-content: start;
+                gap: 6px;
             }
 
             #lbtns {
                 min-width: 100%;
+                max-height: 36px;
             }
 
             #uin {
@@ -260,6 +490,8 @@
             }
 
             header {
+                width: 96%;
+                min-height: 48px;
                 padding: 0px 10px 0px 10px;
             }
 
@@ -271,31 +503,27 @@
                 padding-left: 10px;
             }
 
-            #micc {
-                margin-left: 0px;
-            }
-            #micc .yt-icon{
-                display: none;
-                width: 0px;
-                height: 0px;
-            }
-            #micc .search-icon{
-                max-height: 20px;
-                max-width: 20px;
-                display: block;
-            }
-
             #main {
                 padding: 0px;
                 width: 100%;
+                margin-left: 0px;
+            }
+
+            .hidea {
+                display: none;
             }
 
             #player {
                 border-radius: 0px;
-                min-height: 250px;
+                position: fixed;
+                z-index: 1;
             }
 
-            #main h1 {
+            #player iframe {
+                border-radius: 0px;
+            }
+
+            #title {
                 padding: 0px 10px 0px 10px;
             }
 
@@ -303,6 +531,8 @@
                 padding: 0px;
                 margin: 0px;
                 width: 100%;
+                max-width: 600px;
+                padding-bottom: 12px;
             }
 
             #mored {
@@ -310,9 +540,56 @@
             }
 
             #morep {
-                min-height: 250px;
+                min-height: 56vw;
                 border-radius: 0px;
 
+            }
+
+            .dot {
+                display: none;
+            }
+
+            #morebd {
+                display: flex;
+                flex-direction: row;
+                padding: 0px 12px;
+            }
+
+            #morebd #ct {
+                display: block;
+                min-width: 44px;
+                min-height: 44px;
+                max-width: 44px;
+                max-height: 44px;
+                margin-right: 12px;
+                background-image: url("https://yt3.ggpht.com/e92WlvjQjXNBeYtohr3sp1PdX0AnzgM-2Bt69Ec6F9vyBsx8louKS3o04uuR2V0FYrirYBzUcw=s68-c-k-c0x00ffffff-no-rj");
+            }
+
+            #subdivt {
+                display: flex;
+                flex-direction: row;
+                gap: 4px;
+            }
+
+            .diff {
+                display: block;
+            }
+
+            .views {
+                display: block;
+                font-size: 12px;
+                padding: 0px 10px;
+                color: rgb(170, 170, 170);
+            }
+
+            .views b {
+                color: rgb(241, 241, 241);
+                font-size: 12px;
+                font-weight: bolder;
+            }
+
+            #description {
+                display: none;
             }
         }
     </style>
@@ -360,15 +637,20 @@
                 </svg>
             </svg>
         </div>
-        <div>
-            <input type="text">
+        <div class="search">
+            <div class="searchbar">
+                <input type="text" placeholder="Search" id="searchval">
+                <div class="searchicon" onclick="window.open(`https://www.youtube.com/results?search_query=${document.getElementById('searchval').value}`, '_blank')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24"
+                        width="24" focusable="false" aria-hidden="true"
+                        style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                        <path clip-rule="evenodd"
+                            d="M16.296 16.996a8 8 0 11.707-.708l3.909 3.91-.707.707-3.909-3.909zM18 11a7 7 0 00-14 0 7 7 0 1014 0z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                </div>                
+            </div>
             <div id="micc">
-                <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE search-icon"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
-                    </path>
-                </svg>
                 <yt-icon>
                     <yt-icon-shape class="style-scope yt-icon">
                         <icon-shape class="yt-spec-icon-shape">
@@ -405,283 +687,356 @@
     </header>
     <section>
         <div id="main">
-            <div id="player"></div>
-            <h1>I Built 100 Houses And Gave Them Away!
-            </h1>
+            <div id="player">
+                <iframe width="1045" height="588" src="https://www.youtube.com/embed/K-5EdHZ0hBs"
+                    title="Need for Speed Payback Official Gameplay Trailer" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </div>
+            <h1 id="title" style="font-size: 20px;font-weight:700">Need for Speed Payback Official Gameplay Trailer</h1>
+            <p class="views">17M views · 7 years ago <b>...more</b></p>
             <div id="btns">
                 <div id="lbtns">
                     <div id="ct"></div>
                     <div id="cinfo">
-                        <p>channel name</p>
-                        <p>Subscribers</p>
+                        <p>Need for Speed</p>
+                        <div id="subdiv">
+                            <p class="subcount">1.31M </p>
+                            <p class="subcount hidea">subscribers</p>
+                        </div>
                     </div>
-                    <div id="join">Join</div>
                     <div id="Subscribe">Subscribe</div>
                 </div>
                 <div id="rbtns">
                     <div id="lkeodislike"></div>
                     <div id="share">Share</div>
                     <div id="download">Download</div>
-                    <div id="moreb"></div>
+                    <div id="moreb">• • •</div>
                 </div>
             </div>
-            <div id="description"></div>
+            <div id="description">
+                <p>17M views 7 years ago</p>
+                <p>How do you get behind the wheel of a car that's being transported through the desert? Watch our EA
+                    Play gameplay trailer and find out how the crew gets things done.</p>
+                <p>...more</p>
+            </div>
             <div id="comments"></div>
         </div>
         <div id="more">
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            <a href="https://www.youtube.com/watch?v=YY2GX_7wR7Y" target="_blank">
+                <div id="mored">
+                    <div id="morep">
+                        <p>8:09</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"></div>
+                        <div id="mpd">
+                            <p>Forza Horizon 5 Official Initial Drive Trailer</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Forza</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">7.7M views</p>
+                                    <p class="moreo dot">3 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=yywQMkJDoOo" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/DmS5XOnhoR4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB5whgTLmX4vAP9pT2RQ9vd0D7DrQ')">
+                        <p>34:00</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/OGnBEtpIDiIkR7nrh-zDP13NNdkrAggXJRFR8yMA4ZO1ExCMF1g4pND1kIsVPjVyL3pZ4O3XAA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Black Myth Wukong - Monkey King vs Ancient Gods Scene (4K 60FPS)</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Shirrako</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">3M views</p>
+                                    <p class="moreo dot">6 months ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=d4JnshyKOOQ" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/d4JnshyKOOQ/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBwF0CnASyMKTZ3UzK5pYIa94sacQ')">
+                        <p>3:18</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/fZdgfIbgIyuEU7NY_w622VaiXj9VeuwBEbbsLHMVR8cgLgxIKxMPjF5OGG4FJMkxHC-2m3KuaA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>The Crew - E3 2013 - Announcement Trailer [UK]</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Ubisoft</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">35M views</p>
+                                    <p class="moreo dot">11 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=uYPbbksJxIg" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/uYPbbksJxIg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDreN5WpE0ffd2bt7E3VkCK3toNxw')">
+                        <p>3:07</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/PzIajPyy9_HJ-LR5S6q86JV9o2GjabXF54QJnr3PeHpOiGOXtroatGM3mB2QxQa_vkF5yuyu9hs=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Oppenheimer | New Trailer</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Universal Pictures</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">72M views</p>
+                                    <p class="moreo dot">1 year ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=qEVUtrk8_B4" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/qEVUtrk8_B4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAA-AZZ9r0wg8aEOBE3ndO6VkvpVQ')">
+                        <p>2:30</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/ytc/AIdro_kGOHZMzqkOegAXqycAPUEBORRZEX4y1x-LZ6vm-_vnavDJ=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>John Wick: Chapter 4 (2023 Movie) Official Trailer – Keanu Reeves, Donnie Yen, Bill
+                                Skarsgård by Lionsgate Movies</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Lionsgate Movies</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">51M views</p>
+                                    <p class="moreo dot">2 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=GgKmhDaVo48" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/GgKmhDaVo48/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAkLGnFci3eQbwl5MlEU901mTplaA')">
+                        <p>2:21</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/xjnenDsZ-6TiNsE13A2Vggxfg0Np7IOtvA5_AaH26QrVelAkRqkWfKVPjemuuq9JN25ppTk-mA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>GRAN TURISMO - Official Trailer 2 (HD)</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Sony Pictures Entertainment</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">11M views</p>
+                                    <p class="moreo dot">1 year ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=cqGjhVJWtEg" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/cqGjhVJWtEg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALwsyThIigXZJEa_9nZWaKTraZmg')">
+                        <p>2:30</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/xjnenDsZ-6TiNsE13A2Vggxfg0Np7IOtvA5_AaH26QrVelAkRqkWfKVPjemuuq9JN25ppTk-mA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>SPIDER-MAN: ACROSS THE SPIDER-VERSE - Official Trailer (HD)</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Sony Pictures Entertainment</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">37M views</p>
+                                    <p class="moreo dot">2 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=C2NWGAqZhF4" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/C2NWGAqZhF4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAgJCA-oYQEczXd14Qx1K4KINk3OA')">
+                        <p>1:49</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/ytc/AIdro_nwYAAifGQcbSxc52AHoSFVS4_vYwPPp68XoGXHVjaBxA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Now You See Me - Official Trailer [HD]</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">UGO</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">445K views</p>
+                                    <p class="moreo dot">12 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=69ffwl-8pCU" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/69ffwl-8pCU/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCmJOBfB204eD_SFStg8JnFPKhTzQ')">
+                        <p>2:29</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/OjIDFlHinRLmfN75Zunw4e4NpdQKdcpEjRBMBILifgIAya9FLW68C6VPgNGLlk4GJ5z97sR2kQ=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>F1 | Official Trailer</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">FORMULA 1</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">2.7M views</p>
+                                    <p class="moreo dot">5 days ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=basLDO2bj2k" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/basLDO2bj2k/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDmcy8vafTHksw4BdtY2CaFaNZiPA')">
+                        <p>1:24</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/k7BhK-hm9_MbJbaKznHPhir6e4pWXbm1ppAHoseLIzRgoAPBMmH1IIhYKlXbGono25RD1OQwHQ=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Marvel’s Blade | Announcement Trailer | The Game Awards 2023</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Marvel Entertainment</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">9.7M views</p>
+                                    <p class="moreo dot">1 year ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=6ZfuNTqbHE8" target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/6ZfuNTqbHE8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAhcdawuK4WBoTmiqgQ3ZXhtPfHdw')">
+                        <p>2:25</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/k7BhK-hm9_MbJbaKznHPhir6e4pWXbm1ppAHoseLIzRgoAPBMmH1IIhYKlXbGono25RD1OQwHQ=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Marvel Studios' Avengers: Infinity War Official Trailer</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Marvel Entertainment</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">226M views</p>
+                                    <p class="moreo dot">7 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=HNnt00swZ5Q&pp=ygVbU2FhaG8gVHJhaWxlciA6IFRlbHVndSB8IFByYWJoYXMgfCBTaHJhZGRoYSBLYXBvb3IgfCBTdWplZXRoIHwgI1NhYWhvVHJhaWxlciB8IFVWIENyZWF0aW9ucw%3D%3D"
+                target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/HNnt00swZ5Q/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAcMvJ1aC3BwfPnVBBx1eh_O0UHoA')">
+                        <p>2:47</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/ytc/AIdro_nlxTtW5ulT7vQd1uVFuuTrozLQJwt9zx6PsXFY0HEguqA=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Saaho Trailer : Telugu | Prabhas | Shraddha Kapoor | Sujeeth | #SaahoTrailer | UV
+                                Creations by UV Creations</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">UV Creations</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">35M views</p>
+                                    <p class="moreo dot">5 years ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0&pp=ygUdR3JhbmQgVGhlZnQgQXV0byBWSSBUcmFpbGVyIDE%3D"
+                target="_blank">
+                <div id="mored">
+                    <div id="morep"
+                        style="background-image:url('https://i.ytimg.com/vi/QdBZY2fkU-0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBh1rsHPfAe3gxRL57QyC9ciy6ELA')">
+                        <p>1:31</p>
+                    </div>
+                    <div id="morebd">
+                        <div id="ct"
+                            style="background-image: url('https://yt3.ggpht.com/-jCZaDR8AoEgC6CBPWFubF2PMSOTGU3nJ4VOSo7aq3W6mR8tcRCgygd8fS-4Ra41oHPo3F3P=s68-c-k-c0x00ffffff-no-rj');">
+                        </div>
+                        <div id="mpd">
+                            <p>Grand Theft Auto VI Trailer 1</p>
+                            <div id="subdivt">
+                                <p class="moreo cn">Rockstar Games</p>
+                                <div id="subat">
+                                    <p class="moreo dot diff"></p>
+                                    <p class="moreo">245M views</p>
+                                    <p class="moreo dot">1 year ago</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
-            <div id="mored">
-                <div id="morep"></div>
-                <div id="mpd">
-                    <p>video name</p>
-                    <p>channel name</p>
-                    <div id="subat">
-                        <p>sub</p>
-                        <p>time</p>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
     </section>
 </body>
